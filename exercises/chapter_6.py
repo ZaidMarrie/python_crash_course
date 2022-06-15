@@ -75,14 +75,117 @@ for name in favorite_languages.keys():
     else:
         print(f"{name.title()}, please take the poll.")
 
-# 6.7
+# 6.7 People
+people = {
+    "emerit": {
+        "first_name": "eric",
+        "last_name": "merit",
+        "age": 37,
+        "city": "valencia"
+    },
+    "ksavic": {
+        "first_name": "kevio",
+        "last_name": "savic",
+        "age": 63,
+        "city": "oslo"
+    },
+    "zmarie": {
+        "first_name": "zaid",
+        "last_name": "marrie",
+        "age": 24,
+        "city": "johannesburg"
+    }
+}
 
-# 6.8
+for person, person_info in people.items():
+    print(f"\nUsername: {person}")
+    fullname = f"{person_info['first_name'].title()} {person_info['last_name'].title()}"
 
-# 6.9
+    print(f"\tFullname: {fullname}")
+    print(f"\tAge: {person_info['age']}")
+    print(f"\tCity: {person_info['city']}")
 
-# 6.10
+# 6.8 Pets
+pets = [
+    {
+        "animal_type": "dog",
+        "owner": "will",
+        "legs": 4
+    },
+    {
+        "animal_type": "cat",
+        "owner": "elizabeth",
+        "legs": 4
+    },
+    {
+        "animal_type": "bird",
+        "owner": "frank",
+        "legs": 2
+    }
+]
 
-# 6.11
+for pet in pets:
+    print("\nThese following pets from my neighborhood:")
+    for key, value in pet.items():
+        print(f"\t{key}: {value}")
 
-# 6.12
+# 6.9 Favorite places
+favorite_places = {
+    "jen": ["rome", "paris"],
+    "joe": ["texas", "los angeles", "san francisco"],
+    "celine": ["sydney", "paris", "singapore"]
+}
+
+for name, places in favorite_places.items():
+    print(f"\n{name.title()}'s favorite places are: ")
+    for place in places:
+        print(f"\t{place.title()}")
+
+# 6.10 Favorite Numbers
+favorite_numbers = {
+    "jen": [88, 33, 55],
+    "stowie": [25, 13, 1],
+    "kevin": [12, 6],
+    "miley": [11, 7],
+    "walie": [7, 11, 21]
+}
+
+for name, numbers in favorite_numbers.items():
+    print(f"\n{name.title()}'s numbers are: ")
+    for number in numbers:
+        print(f"\t{number}")
+
+# 6.11 Cities
+cities = {
+    "sydney": {
+        "country": "australia",
+        "population": 5_312_000,
+        "fact": "Sydney has more than 100 beaches."
+    },
+    "oslo": {
+        "country": "norway",
+        "population": 634_293,
+        "fact": "The Frogner Park is the world’s largest sculpture park."
+    },
+    "las_vegas": {
+        "country": "united states of america",
+        "population": 644_594,
+        "fact": "The city sees over 300 weddings a day"
+    },
+    "paris": {
+        "country": "france",
+        "population": 2_161_000,
+        "fact": "Paris has one of the most famous paintings in the world."
+    },
+    "berlin": {
+        "country": "berlin",
+        "population": 3_645_000,
+        "fact": "Berlin is home to the worlds longest beer garden."
+    }
+}
+
+for city, city_info in cities.items():
+    print(f"\nThe city of {city.title()}:")
+
+    for key, value in city_info.items():
+        print(f"\t{key.title()}: {value}")
