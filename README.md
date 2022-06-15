@@ -13,7 +13,7 @@ My Python learning journey, following the **Python Crash Course Book** by Eric M
 
 ## Overview
 
-<img src="pcc-cover.jpg" alt="Book Cover">
+![Book Cover](https://user-images.githubusercontent.com/84665360/173823750-af673e5d-bbcd-414c-a64b-645499184477.jpg)
 
 A project-based introduction to programming in Python, with exercises. Covers general
 programming concepts, Python fundamentals, and problem solving. Includes three projects - how to
