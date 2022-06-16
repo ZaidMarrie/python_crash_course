@@ -1,3 +1,4 @@
 # Avoid pushing annoying generated files!
 .DS_Store
 .prettierignore
+.vscode
