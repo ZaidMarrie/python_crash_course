@@ -2,3 +2,4 @@
 .DS_Store
 .prettierignore
 .vscode
+__pycache__
