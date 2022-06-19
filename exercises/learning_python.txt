@@ -1,0 +1,5 @@
+In Python you can store multiple values in a single variable.
+In Python you can store related data as key-value pairs.
+In Python you can repeat the same instructions over and over using loops.
+In Python you can accurately model real-life situations with classes.
+In Python you can use functions to do a specific task as many times as you like.

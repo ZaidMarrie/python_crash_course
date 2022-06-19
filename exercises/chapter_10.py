@@ -1,6 +1,27 @@
-# 10.1
+# 10.1 Learning python
+filename = "learning_python.txt"
 
-# 10.2
+with open(filename) as file_object:
+    content = file_object.read()
+print(content.rstrip())
+
+with open(filename) as file_object:
+    for line in file_object:
+        print(line.strip())
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.strip())
+
+# 10.2 Learning C
+filename = "learning_python.txt"
+
+with open(filename) as file_object:
+    for line in file_object:
+        line.replace("Python", "JavaScript")
+        print(line)
 
 # 10.3
 
