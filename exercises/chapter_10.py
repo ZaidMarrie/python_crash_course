@@ -3,7 +3,7 @@ filename = "learning_python.txt"
 
 with open(filename) as file_object:
     content = file_object.read()
-print(content.rstrip())
+print("\n", content.rstrip())
 
 with open(filename) as file_object:
     for line in file_object:
@@ -19,15 +19,52 @@ for line in lines:
 filename = "learning_python.txt"
 
 with open(filename) as file_object:
-    for line in file_object:
-        line.replace("Python", "JavaScript")
-        print(line)
+    lines = file_object.readlines()
 
-# 10.3
+for line in lines:
+    line = line.replace("Python", "JavaScript")
+    print("\n", line)
 
-# 10.4
+# 10.3 Guest
+filename = "guest.txt"
 
-# 10.5
+with open(filename, "w") as file_object:
+    guest = input("What is your name? ")
+    file_object.write(guest)
+
+# 10.4 Guest Book
+filename = "guest_book.txt"
+polling_active = True
+
+while polling_active:
+    prompt = "\nPlease tell me what your name is: "
+    prompt += "(Enter 'q' anytime to quit.)"
+
+    name = input(prompt)
+    if name == "q":
+        polling_active = False
+    else:
+        print(f"\nWelcome, {name.title()}")
+        with open(filename, "a") as file_object:
+            visit_message = f"{name.title()} has visited.\n"
+            file_object.write(visit_message)
+
+
+# 10.5 Programming poll
+filename = "programming_poll.txt"
+polling_active = True
+
+while polling_active:
+    prompt = "\nPlease tell me why you like programming: "
+    prompt += "(Enter q anytime to quit.)"
+
+    reason = input(prompt)
+    if reason == "q":
+        polling_active = False
+    else:
+        with open(filename, "a") as file_object:
+            file_object.write(reason + "\n")
+
 
 # 10.6
 

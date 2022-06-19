@@ -53,3 +53,24 @@ if birthday in pi_string:
     print("Your birthday appears in the first million digits of Pi.")
 else:
     print("Your birthday does not appear in the first million digits of Pi.")
+
+# Writing to a file
+# Writing to an empty file
+filename = "programming.txt"
+
+with open(filename, "w") as file_object:
+    file_object.write("I love programming.")
+
+# Writing multiple lines
+filename = "programming.txt"
+
+with open(filename, "w") as file_object:
+    file_object.write("I love programming.\n")
+    file_object.write("I love creating new games.\n")
+
+# Appending to a file
+filename = "programming.txt"
+
+with open(filename, "a") as file_object:
+    file_object.write("I also love finding meaning in large data sets.\n")
+    file_object.write("I love creating apps that can run in the browser.\n")
