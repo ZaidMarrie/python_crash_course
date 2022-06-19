@@ -66,18 +66,82 @@ while polling_active:
             file_object.write(reason + "\n")
 
 
-# 10.6
+# 10.6 Addition
+print("Give me two numbers, and I'll add them.")
+print("Enter 'q' to quit.")
+try:
+    first_number = int(input("First number: "))
+    second_number = int(input("Second number: "))
+except ValueError:
+    print("You can only add numbers!")
+else:
+    print(first_number + second_number)
 
-# 10.7
+# 10.7 Addition calculator
+print("Give me two numbers, and I'll add them.")
+print("Enter 'q' to quit.")
 
-# 10.8
+while True:
+    first_number = input("First number: ")
+    if first_number == "q":
+        break
+    second_number = input("Second number: ")
+    if second_number == "q":
+        break
 
-# 10.9
+    try:
+        first_number = int(first_number)
+        second_number = int(second_number)
+    except ValueError:
+        print("You can only add numbers!")
+    else:
+        print(first_number + second_number)
 
-# 10.10
+# 10.8 Cats and dogs
+filenames = ["cats.txt", "dogs.txt"]
 
-# 10.11
+for filename in filenames:
+    try:
+        with open(filename) as f:
+            print(f.read())
+    except FileNotFoundError:
+        print(f"The file '{filename}' does not exist")
 
-# 10.12
+# 10.9 Silent cats and dogs
+filenames = ["cats.txt", "dogs.txt"]
 
-# 10.13
+for filename in filenames:
+    try:
+        with open(filename) as f:
+            print(f.read())
+    except FileNotFoundError:
+        pass
+
+# 10.10 Common words
+filename = "american_notes.txt"
+
+
+def count_word_presence(file, word="the"):
+    """Counts how many times the specified word appears in a text file."""
+    try:
+        with open(file, encoding="utf-8") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print("The file does not exist!")
+    else:
+        word_count = 0
+        for line in lines:
+            line = line.lower()
+            word_count += line.count(word)
+        print(f"The word '{word}' appears {word_count} times in the text.")
+
+
+count_word_presence(filename)
+count_word_presence(filename, "the ")
+
+# 10.11 Favorite number
+
+# 10.12 Favorite number remembered
+
+
+# 10.13 Verify user

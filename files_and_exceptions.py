@@ -74,3 +74,110 @@ filename = "programming.txt"
 with open(filename, "a") as file_object:
     file_object.write("I also love finding meaning in large data sets.\n")
     file_object.write("I love creating apps that can run in the browser.\n")
+
+# Exceptions
+# Handling the ZeroDivisionError exception
+# print(5/0) #! I raise an exception
+
+# Using try-except blocks
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("\nYou can't divide by 0.")
+
+# Using exceptions to prevent crashes
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == "q":
+        break
+    second_number = input("\nSecond number: ")
+    if second_number == "q":
+        break
+    answer = int(first_number) / int(second_number)
+    print(answer)
+
+# The else block
+print("Give me two numbers, and I'll divide them.")
+print("Enter 'q' to quit.")
+
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == "q":
+        break
+    second_number = input("\nSecond number: ")
+    if second_number == "q":
+        break
+    try:
+        answer = int(first_number) / int(second_number)
+    except ZeroDivisionError:
+        print("You can't divide by 0!")
+    else:
+        print(answer)
+
+# Handling the FileNotFoundError exception
+filename = "alice.txt"
+try:
+    with open(filename, encoding="utf-8") as f:
+        contents = f.read()
+except FileNotFoundError:
+    print(f"Sorry, the file '{filename}' does not exist.")
+
+# Analyzing text
+filename = "alice.txt"
+try:
+    with open(filename, encoding="utf-8") as f:
+        contents = f.read()
+except FileNotFoundError:
+    print(f"Sorry, the file '{filename}' does not exist.")
+else:
+    words = contents.split()
+    num_words = len(words)
+    print(f"The file '{filename}' has about {num_words} words.")
+
+# Working with multiple files
+
+
+def count_words(filename):
+    """Count the approximate number of words in a file."""
+    try:
+        with open(filename, encoding="utf-8") as f:
+            contents = f.read()
+    except FileNotFoundError:
+        print(f"Sorry, the file '{filename}' does not exist.")
+    else:
+        words = contents.split()
+        num_words = len(words)
+        print(f"The file '{filename}' has about {num_words} words.")
+
+
+filename = "alice.txt"
+count_words(filename)
+
+filenames = ["alice.txt", "siddhartha.txt",
+             "moby_dick.txt", "little_women.txt"]
+for filename in filenames:
+    count_words(filename)
+
+# Failing silently
+
+
+def count_words(filename):
+    """Count the approximate number of words in a file."""
+    try:
+        with open(filename, encoding="utf-8") as f:
+            contents = f.read()
+    except FileNotFoundError:
+        pass
+    else:
+        words = contents.split()
+        num_words = len(words)
+        print(f"The file '{filename}' has about {num_words} words.")
+
+
+filenames = ["alice.txt", "siddhartha.txt",
+             "moby_dick.txt", "little_women.txt"]
+for filename in filenames:
+    count_words(filename)

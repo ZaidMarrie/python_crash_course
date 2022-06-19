@@ -3,3 +3,7 @@ Programming provides ways to solve real world problems.
 Programming is fun.
 I enjoy create apps/games.
 I love working with data using programming as a tool.
+I like solving complex problems
+Programming is fun
+Programmings allows you to solve real-world problems
+Programming makes working with data easier when used as a tool for working with data.
