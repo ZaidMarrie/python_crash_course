@@ -1,5 +1,6 @@
 # Reading from a file
 # Reading an entire file
+import json
 with open("pi_digits.txt") as file_object:
     contents = file_object.read()
 print(contents)
@@ -181,3 +182,77 @@ filenames = ["alice.txt", "siddhartha.txt",
              "moby_dick.txt", "little_women.txt"]
 for filename in filenames:
     count_words(filename)
+
+# Storing data
+# Using json.dump() and json.load()
+
+filename = "numbers.json"
+numbers = [2, 3, 5, 7, 11, 13]
+
+with open(filename, "w") as f:
+    json.dump(numbers, f)
+
+with open(filename) as f:
+    numbers = json.load(f)
+
+print(numbers)
+
+# Saving and using user-generated data
+filename = "username.json"
+username = input("What is your name? ")
+
+with open(filename, "w") as f:
+    json.dump(username, f)
+    print(f"We'll remember you come back, {username}!")
+
+with open(filename) as f:
+    username = json.load(f)
+    print(f"Welcome back, {username}!")
+
+
+try:
+    with open(filename) as f:
+        username = json.load(f)
+except FileNotFoundError:
+    username = input("What is your name? ")
+    with open(filename, "w") as f:
+        json.dump(username, f)
+        print(f"We'll remember you when you come back, {username}!")
+else:
+    print(f"Welcome back, {username}!")
+
+# Refactoring
+
+
+def get_stored_username():
+    """Get stored username if available."""
+    filename = 'username.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+
+def get_new_username():
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    filename = 'username.json'
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+
+def greet_user():
+    """Greet the user by name."""
+    username = get_stored_username()
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username()
+        print(f"We'll remember you when you come back, {username}!")
+
+
+greet_user()

@@ -1,4 +1,5 @@
 # 10.1 Learning python
+import json
 filename = "learning_python.txt"
 
 with open(filename) as file_object:
@@ -140,8 +141,58 @@ count_word_presence(filename)
 count_word_presence(filename, "the ")
 
 # 10.11 Favorite number
+filename = "favorite_number.json"
+favorite_number = input("What is your favorite number? ")
 
-# 10.12 Favorite number remembered
+with open(filename, "w") as f:
+    json.dump(favorite_number)
 
+with open(filename) as f:
+    favorite_number = json.load(f)
+    print(f"I know your favorite number! It's {favorite_number}.")
 
 # 10.13 Verify user
+
+
+def get_stored_username():
+    """Get stored username if available."""
+    filename = 'username.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+
+def get_new_username():
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    filename = 'username.json'
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+
+def verify_username(username):
+    """Verifies if the correct user is being greeted."""
+    prompt = "\nIs this the correct username:"
+    prompt += f"Username: {username}. (yes/no): "
+    is_user = input(prompt)
+
+    if is_user.lower() == "yes":
+        return True
+    else:
+        return False
+
+
+def greet_user():
+    """Greet the user by name."""
+    username = get_stored_username()
+
+    if verify_username(username):
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username()
+        print(f"We'll remember you when you come back, {username}!")
