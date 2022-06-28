@@ -1,5 +1,7 @@
 # Avoid pushing annoying generated files!
-.DS_Store
-.prettierignore
-.vscode
-__pycache__
+.vscode/
+__pycache__/
+ll_env/
+*.DS_Store
+*.prettierignore
+*sqlite3
